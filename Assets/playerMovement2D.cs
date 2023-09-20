@@ -25,12 +25,17 @@ public class PlayerMovement2D : MonoBehaviour
     [Header                 ("Locomotion Settings")]
     public float            speed = 5f;
     public float            jumpForce = 10f;
-    public float            jumpTime = 0.25f;   
+    public float            jumpTime = 0.25f;
+
+    [Space]
+    [Header("Gravity")]
+    [SerializeField]
+    private float gravity = 10f;
 
     void Start()
     {
         m_PlayerRB = GetComponent<Rigidbody2D>();
-        m_PlayerRB.gravityScale = 4f;
+        m_PlayerRB.gravityScale = gravity;
     }
 
     void Update()
