@@ -24,13 +24,13 @@ public class gameManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            SpawnObstacles();
+            //SpawnObstacles();
         }
     }
 
-    public void SpawnObstacles()
+    /*public void SpawnObstacles()
     {
         Instantiate(obstacle, Vector3()));
-    }
+    }*/
 
 }
