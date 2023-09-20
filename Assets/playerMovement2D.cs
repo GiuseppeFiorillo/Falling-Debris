@@ -1,5 +1,5 @@
 // Creator: Pikachuxxxx
-// Source: https://gist.github.com/Pikachuxxxx/19bf6c35a42577e1edfdb1ee5f02bf5b
+ // Source: https://gist.github.com/Pikachuxxxx/19bf6c35a42577e1edfdb1ee5f02bf5b
 
 using System.Collections;
 using System.Collections.Generic;
@@ -24,26 +24,13 @@ public class PlayerMovement2D : MonoBehaviour
     [Space]
     [Header                 ("Locomotion Settings")]
     public float            speed = 5f;
-    public float            jumpForce = 10f;
-<<<<<<< HEAD
+    public float            jumpForce = 20f;
     public float            jumpTime = 0.25f;   
-=======
-    public float            jumpTime = 0.25f;
-
-    [Space]
-    [Header("Gravity")]
-    [SerializeField]
-    private float gravity = 10f;
->>>>>>> 1b0646cc4bb36d73ce918561a0369ff1a981e17c
 
     void Start()
     {
         m_PlayerRB = GetComponent<Rigidbody2D>();
-<<<<<<< HEAD
         m_PlayerRB.gravityScale = 4f;
-=======
-        m_PlayerRB.gravityScale = gravity;
->>>>>>> 1b0646cc4bb36d73ce918561a0369ff1a981e17c
     }
 
     void Update()
@@ -61,12 +48,12 @@ public class PlayerMovement2D : MonoBehaviour
 
         // Check whether the player is grounded or not
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+
         // If the player is grounded enable him to jump 
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             m_PlayerRB.velocity = Vector2.up * jumpForce;
             m_IsJumping = true;
-            isGrounded = false;
             m_JumpTimeCounter = jumpTime;
         }
 
