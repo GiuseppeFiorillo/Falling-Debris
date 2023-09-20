@@ -48,12 +48,12 @@ public class PlayerMovement2D : MonoBehaviour
 
         // Check whether the player is grounded or not
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-
         // If the player is grounded enable him to jump 
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             m_PlayerRB.velocity = Vector2.up * jumpForce;
             m_IsJumping = true;
+            isGrounded = false;
             m_JumpTimeCounter = jumpTime;
         }
 
