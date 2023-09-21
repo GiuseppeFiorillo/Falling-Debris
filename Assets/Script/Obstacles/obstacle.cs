@@ -22,11 +22,12 @@ public class roatationMeteor : MonoBehaviour
     {
         rotationSpeed = Random.Range(direction, -direction);
         GetComponent<Rigidbody2D>().mass = weights[Random.Range(0, weights.Length)];
-
+        print(weights.Length);
+        print(GetComponent<Rigidbody2D>().mass);
         scaleWeight();
 
         //PLACEHOLDER
-        setColor();
+        setSprite();
 
         //CLOCK POWER CHECKER
         clockPowerON();
@@ -67,21 +68,56 @@ public class roatationMeteor : MonoBehaviour
     }
 
     //PLACEHOLDER
-    public void setColor()
+    public void setSprite()
     {
-        if (GetComponent<Rigidbody2D>().mass == 5)
+        Sprite newSprite;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Animator animator = GetComponent<animator>();
+        if (spriteRenderer != null) 
         {
-            this.GetComponent<SpriteRenderer>().color = Color.magenta;
-        }
-        
-        if (GetComponent<Rigidbody2D>().mass == 10)
-        {
-            this.GetComponent<SpriteRenderer>().color = Color.cyan;
-        }
+            if (GetComponent<Rigidbody2D>().mass == 5)
+            {
+                newSprite = Resources.Load<Sprite>("Sprites/rock");
+                if (newSprite != null)
+                {
+                    // Assegna la nuova Sprite
+                    spriteRenderer.sprite = newSprite;
+                }
+                else
+                {
+                    Debug.LogWarning("SpriteRenderer o newSprite non impostati correttamente.");
+                }    
+            }
+            
+            // Rock
+            else if (GetComponent<Rigidbody2D>().mass == 10)
+            {
+                newSprite = Resources.Load<Sprite>("Sprites/brick");
+                if (newSprite != null)
+                {
+                    // Assegna la nuova Sprite
+                    spriteRenderer.sprite = newSprite;
+                }
+                else
+                {
+                    Debug.LogWarning("SpriteRenderer o newSprite non impostati correttamente.");
+                }
+            }
 
-        if (GetComponent<Rigidbody2D>().mass == 15)
-        {
-            this.GetComponent<SpriteRenderer>().color = Color.red;
+            // Anvil
+            else if (GetComponent<Rigidbody2D>().mass == 15)
+            {
+                newSprite = Resources.Load<Sprite>("Sprites/anvil");
+                if (newSprite != null)
+                {
+                    // Assegna la nuova Sprite
+                    spriteRenderer.sprite = newSprite;
+                }
+                else
+                {
+                    Debug.LogWarning("SpriteRenderer o newSprite non impostati correttamente.");
+                }
+            }
         }
     }
 
@@ -95,5 +131,10 @@ public class roatationMeteor : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().gravityScale = 1f;
         }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        GetComponent<Animator>().speed = 0f;
     }
 }
