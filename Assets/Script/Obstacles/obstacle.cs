@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
+using System.Threading;
 using UnityEngine;
 
 public class roatationMeteor : MonoBehaviour
@@ -12,6 +13,8 @@ public class roatationMeteor : MonoBehaviour
     [Header("Weight numbers")]
     [SerializeField]
     private int[] weights;
+
+    private float timerDestroy = 5f;
 
 
     // Start is called before the first frame update
@@ -25,20 +28,22 @@ public class roatationMeteor : MonoBehaviour
         //PLACEHOLDER
         setColor();
 
-        StartCoroutine(destroy());
+        //CLOCK POWER CHECKER
+        clockPowerON();
     }
 
     // Update is called once per frame
     void Update()
     {
         this.GetComponent<Rigidbody2D>().AddForce(transform.right * rotationSpeed * Time.deltaTime);
+        destroy();
     }
 
-    public IEnumerator destroy()
+    public void destroy()
     {
-        while (true)
+        timerDestroy -= Time.deltaTime;
+        if(timerDestroy < 0 )
         {
-            yield return new WaitForSeconds(10f);
             Destroy(this.gameObject);
         }
     }
@@ -77,6 +82,18 @@ public class roatationMeteor : MonoBehaviour
         if (GetComponent<Rigidbody2D>().mass == 15)
         {
             this.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+    }
+
+    public void clockPowerON()
+    {
+        if (GameObject.Find("gameManager").GetComponent<gameManager>().getClock())
+        {
+            GetComponent<Rigidbody2D>().gravityScale = 0.25f;
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().gravityScale = 1f;
         }
     }
 }

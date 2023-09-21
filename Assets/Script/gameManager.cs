@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,28 +22,41 @@ public class gameManager : MonoBehaviour
 
     private float timerGameOver = 3f;
     private float timerScore = .5f;
+    private float timerClock = 10f;
+
+    [SerializeField]
+    private float timerSpawn;
+
+    private float timerSpawnObj;
 
     private int score = 0;
 
-
-
+    //STATE
+    private bool clockON = false;
 
     private void Update()
     {
         restartGame();
         scoreUpdate();
+
+        //GESTORE CLOCK POWER
+        setClockOff();
+
+        CallSpawner();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CallSpawner());
+        timerSpawnObj = timerSpawn;
     }
 
     private void restartGame()
     {
         if(gameOver)
         {
+            GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);
+            Destroy(GameObject.Find("Player"));
             timerGameOver -= Time.deltaTime;
             if(timerGameOver <= 0)
             {
@@ -66,11 +80,12 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator CallSpawner()
+    public void CallSpawner()
     {
-        while (!gameOver)
+        timerSpawnObj -= Time.deltaTime;
+        if(timerSpawnObj <= 0)
         {
-            yield return new WaitForSeconds(2f);
+            timerSpawnObj = timerSpawn;
             SpawnObstacles();
         }
     }
@@ -78,14 +93,49 @@ public class gameManager : MonoBehaviour
     public void SpawnObstacles()
     {
         int num = Random.Range(0, 100);
-        if(num < 60)
+        if(num <= 50)
         {
+            //METEOR
             Instantiate(obstacles[0], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
         }
-        else
+        else if(num >= 51 && num <= 61)
         {
+            //TRIANGOLI
             Instantiate(obstacles[1], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
         }
+        else if(num >= 62 && num <= 67)
+        {
+            //CLOCK
+            Instantiate(obstacles[2], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
+        }
+        else if(num >= 68 && num <= 78)
+        {
+            //PLANT
+            Instantiate(obstacles[3], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
+        }
+        else if(num <= 79 && num >= 89)
+        {
+            //BARRIER
+            Instantiate(obstacles[4], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
+        }
     }
-
+    
+    public void setClock(bool val)
+    {
+        clockON = val;
+    }
+    public bool getClock()
+    { return clockON; }
+    private void setClockOff()
+    {
+        if(clockON)
+        {
+            timerClock -= Time.deltaTime;
+            if(timerClock < 0)
+            {
+                clockON = false;
+                timerClock = 10f;
+            }
+        }
+    }
 }

@@ -571,9 +571,13 @@ MonoBehaviour:
   obstacles:
   - {fileID: 1749468989790284107, guid: 37c966e6d11f46b4db5c2d88e9126a96, type: 3}
   - {fileID: 6532378846159471468, guid: 3df7d0e69340ab64fa62b48f4e537803, type: 3}
+  - {fileID: 2444103316273993273, guid: 3b00a6ebfb0cfc44c886978fbb03f6cf, type: 3}
+  - {fileID: 7091214946934011594, guid: 0748c16f712d50e43a1ce2dae0dc6973, type: 3}
+  - {fileID: 36213926713274477, guid: 92a48061acbfe5442a0347560973a742, type: 3}
   SpawnRange: 9
   gameOver: 0
   scoreText: {fileID: 1851486310}
+  timerSpawn: 1.5
 --- !u!4 &584355373
 Transform:
   m_ObjectHideFlags: 0
@@ -779,6 +783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1598112651438963943, guid: f89ee5d3f525842d692d212b0065c798, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3071874901710588437, guid: f89ee5d3f525842d692d212b0065c798, type: 3}
       propertyPath: m_Size.x
       value: 0.22874284
@@ -826,7 +834,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1598112651438963943, guid: f89ee5d3f525842d692d212b0065c798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2066802578}
   m_SourcePrefab: {fileID: 100100000, guid: f89ee5d3f525842d692d212b0065c798, type: 3}
 --- !u!1 &1282015982
 GameObject:
@@ -1169,7 +1180,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036892573}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1188,6 +1199,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 1
+--- !u!1 &2066802572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1598112651438963943, guid: f89ee5d3f525842d692d212b0065c798, type: 3}
+  m_PrefabInstance: {fileID: 1131654845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2066802578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066802572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4da5c9dcc4d60245b8ccd14cfe5ed10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
