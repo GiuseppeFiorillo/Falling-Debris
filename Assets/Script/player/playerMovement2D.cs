@@ -24,8 +24,11 @@ public class PlayerMovement2D : MonoBehaviour
     [Header                 ("Locomotion Settings")]
     public float            speed = 5f;
     public float            jumpForce = 100f;
-    public float            jumpTime = 0.25f;   
+    public float            jumpTime = 0.25f;
 
+    public bool isSlowed = false;
+    private float timerSlowed = 5f;
+    
     void Start()
     {
         m_PlayerRB = GetComponent<Rigidbody2D>();
@@ -71,12 +74,28 @@ public class PlayerMovement2D : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Space))
             m_IsJumping = false;
+
+        removeSlow();
     }
 
     private void FixedUpdate()
     {
         // Moving the player in X-axis using the InputX every physics cycle
         m_PlayerRB.velocity = new Vector2(m_InputX * speed, m_PlayerRB.velocity.y);
+    }
+
+    private void removeSlow()
+    {
+       if(isSlowed)
+       {
+            timerSlowed -= Time.deltaTime;
+            if(timerSlowed < 0)
+            {
+                timerSlowed = 5f;
+                isSlowed = false;
+                speed = 5f;
+            }
+       }
     }
 
 }

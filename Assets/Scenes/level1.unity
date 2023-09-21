@@ -574,6 +574,7 @@ MonoBehaviour:
   - {fileID: 2444103316273993273, guid: 3b00a6ebfb0cfc44c886978fbb03f6cf, type: 3}
   - {fileID: 7091214946934011594, guid: 0748c16f712d50e43a1ce2dae0dc6973, type: 3}
   - {fileID: 36213926713274477, guid: 92a48061acbfe5442a0347560973a742, type: 3}
+  - {fileID: 6603614504015705698, guid: b830b728a12a5bc4e8ce0ad51644ac48, type: 3}
   SpawnRange: 9
   gameOver: 0
   scoreText: {fileID: 1851486310}
@@ -587,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 584355371}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 5.12, z: 0.1929958}
+  m_LocalPosition: {x: -0.02, y: 3.62, z: 0.1929958}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1187,7 +1188,7 @@ Rigidbody2D:
   m_Mass: 80
   m_LinearDrag: 0.75
   m_AngularDrag: 0.5
-  m_GravityScale: 0.75
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
