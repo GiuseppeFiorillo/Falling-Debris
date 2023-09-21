@@ -23,7 +23,7 @@ public class PlayerMovement2D : MonoBehaviour
     [Space]
     [Header                 ("Locomotion Settings")]
     public float            speed = 5f;
-    public float            jumpForce = 20f;
+    public float            jumpForce = 100f;
     public float            jumpTime = 0.25f;   
 
     void Start()

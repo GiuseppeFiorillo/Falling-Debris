@@ -573,6 +573,7 @@ MonoBehaviour:
   - {fileID: 6532378846159471468, guid: 3df7d0e69340ab64fa62b48f4e537803, type: 3}
   SpawnRange: 9
   gameOver: 0
+  scoreText: {fileID: 1851486310}
 --- !u!4 &584355373
 Transform:
   m_ObjectHideFlags: 0
@@ -820,7 +821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9143102189003063902, guid: f89ee5d3f525842d692d212b0065c798, type: 3}
       propertyPath: m_GravityScale
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1175,7 +1176,7 @@ Rigidbody2D:
   m_Mass: 80
   m_LinearDrag: 0.75
   m_AngularDrag: 0.5
-  m_GravityScale: 0.5
+  m_GravityScale: 0.75
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
