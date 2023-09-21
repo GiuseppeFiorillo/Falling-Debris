@@ -72,7 +72,6 @@ public class roatationMeteor : MonoBehaviour
     {
         Sprite newSprite;
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        Animator animator = GetComponent<animator>();
         if (spriteRenderer != null) 
         {
             if (GetComponent<Rigidbody2D>().mass == 5)
@@ -117,6 +116,7 @@ public class roatationMeteor : MonoBehaviour
                 {
                     Debug.LogWarning("SpriteRenderer o newSprite non impostati correttamente.");
                 }
+
             }
         }
     }
