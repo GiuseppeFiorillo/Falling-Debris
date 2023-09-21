@@ -18,14 +18,23 @@ public class barrier : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     private void OnCollisionEnter2D(Collision2D collision)
     {
+=======
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+>>>>>>> b4089623bb78d9d5202c41e3dcfbcf6c774e7dd7
         if (collision.gameObject.name == "Player" && !collision.gameObject.GetComponent<playerHealth>().getBarriered())
         {
             collision.gameObject.GetComponent<playerHealth>().setBarriered(true);
             collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
             Destroy(this.gameObject);
+<<<<<<< HEAD
         }
+=======
+        }
+>>>>>>> b4089623bb78d9d5202c41e3dcfbcf6c774e7dd7
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

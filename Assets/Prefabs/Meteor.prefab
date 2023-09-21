@@ -13,7 +13,11 @@ GameObject:
   - component: {fileID: -7072506395464571523}
   - component: {fileID: 6695316242518081432}
   - component: {fileID: 5124276149505041873}
+<<<<<<< HEAD
   - component: {fileID: 1322776685994265639}
+=======
+  - component: {fileID: 4839064808679945326}
+>>>>>>> b4089623bb78d9d5202c41e3dcfbcf6c774e7dd7
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -128,7 +132,11 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+<<<<<<< HEAD
   m_Constraints: 4
+=======
+  m_Constraints: 0
+>>>>>>> b4089623bb78d9d5202c41e3dcfbcf6c774e7dd7
 --- !u!58 &5124276149505041873
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +172,11 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+<<<<<<< HEAD
 --- !u!95 &1322776685994265639
+=======
+--- !u!95 &4839064808679945326
+>>>>>>> b4089623bb78d9d5202c41e3dcfbcf6c774e7dd7
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

@@ -6,6 +6,12 @@ public class playerHealth : MonoBehaviour
 {
     [SerializeField]
     private int lives = 3;
+<<<<<<< HEAD
+=======
+    
+    private UI_Manager _UIManager;
+//    _UIManager = GameObject.Find("level1").GetComponent<UI_Manager>();
+>>>>>>> b4089623bb78d9d5202c41e3dcfbcf6c774e7dd7
 
     private bool canTakeDamage = true;
     private bool takingDamage = false;
@@ -14,7 +20,12 @@ public class playerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD
         
+=======
+        _UIManager = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+
+>>>>>>> b4089623bb78d9d5202c41e3dcfbcf6c774e7dd7
     }
 
     private void Update()
@@ -28,6 +39,10 @@ public class playerHealth : MonoBehaviour
         if(canTakeDamage && !barriered)
         {
             lives -= 1;
+<<<<<<< HEAD
+=======
+            _UIManager.updateLives(lives);
+>>>>>>> b4089623bb78d9d5202c41e3dcfbcf6c774e7dd7
             takingDamage = true;
             StartCoroutine(damageReset());
             return true;
