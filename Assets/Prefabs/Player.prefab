@@ -76,7 +76,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
+<<<<<<< HEAD
   m_SortingOrder: 1
+=======
+  m_SortingOrder: 0
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
   m_Sprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
   m_Color: {r: 0.9811321, g: 0.087931626, b: 0.087931626, a: 1}
   m_FlipX: 0
@@ -100,10 +104,17 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
+<<<<<<< HEAD
   m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 15
+=======
+  m_Mass: 0.9216
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -136,7 +147,10 @@ MonoBehaviour:
   speed: 5
   jumpForce: 10
   jumpTime: 0.25
+<<<<<<< HEAD
   isSlowed: 0
+=======
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
 --- !u!70 &3071874901710588437
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

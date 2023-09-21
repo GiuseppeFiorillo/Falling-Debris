@@ -7,7 +7,11 @@ public class Pigeon : MonoBehaviour
 {
     private float timerAlive = 5f;
     private bool direction;
+<<<<<<< HEAD
     private float shootTimer = .5f;
+=======
+    private float shootTimer = 1f;
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
 
     [SerializeField]
     private GameObject poop;
@@ -38,11 +42,19 @@ public class Pigeon : MonoBehaviour
     {
         if(direction)
         {
+<<<<<<< HEAD
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * -.1f);
         }
         else
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * .1f);
+=======
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * -.5f);
+        }
+        else
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * .5f);
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
         }
     }
     private void getPath()
@@ -57,7 +69,11 @@ public class Pigeon : MonoBehaviour
         shootTimer -= Time.deltaTime;
         if(shootTimer < 0)
         {
+<<<<<<< HEAD
             shootTimer = .5f;
+=======
+            shootTimer = 1f;
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
             Instantiate(poop, transform.position, transform.rotation);
         }
     }

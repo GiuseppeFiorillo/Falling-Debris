@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class clock : MonoBehaviour
 {
+<<<<<<< HEAD
     private bool isDespawning = false;
     private float timerDespawn = 3f;
     private void Update()
@@ -17,6 +18,8 @@ public class clock : MonoBehaviour
             }
         }
     }
+=======
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Player")
@@ -26,6 +29,7 @@ public class clock : MonoBehaviour
         }
         if(collision.gameObject.name == "Terrain")
         {
+<<<<<<< HEAD
             gameObject.GetComponent<PolygonCollider2D>().isTrigger = false;
             isDespawning = true;
         }
@@ -36,6 +40,8 @@ public class clock : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             GameObject.Find("gameManager").GetComponent<gameManager>().setClock(true);
+=======
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
             Destroy(this.gameObject);
         }
     }

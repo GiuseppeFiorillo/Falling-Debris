@@ -39,6 +39,10 @@ public class playerHealth : MonoBehaviour
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
 
+<<<<<<< HEAD
+=======
+        print(getBarriered());
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
         return false;
     }
 
@@ -72,7 +76,10 @@ public class playerHealth : MonoBehaviour
         if (lives == 0)
         {
             GameObject.Find("gameManager").GetComponent<gameManager>().gameOver = true;
+<<<<<<< HEAD
             Destroy(this.gameObject);
+=======
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
         }
     }
 }

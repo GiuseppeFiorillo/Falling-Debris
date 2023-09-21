@@ -36,7 +36,13 @@ public class plant : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
+<<<<<<< HEAD
             if (collision.gameObject.GetComponent<playerHealth>().takeDamage()) { Destroy(this.gameObject); }
+=======
+            collision.gameObject.GetComponent<playerHealth>().takeDamage();
+            if(collision.gameObject.GetComponent<playerHealth>().getCanTakeDamage())
+                Destroy(this.gameObject);
+>>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
         }
     }
 }
