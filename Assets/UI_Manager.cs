@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Manager_Script : MonoBehaviour
+public class UI_Manager : MonoBehaviour
 {
     [SerializeField]
     private Sprite[] _livesSprites; // Array di sprite per rappresentare le vite
