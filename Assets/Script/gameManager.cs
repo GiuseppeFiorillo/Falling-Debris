@@ -61,7 +61,7 @@ public class gameManager : MonoBehaviour
             if(timerGameOver <= 0)
             {
                 timerGameOver = 3f;
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
         }
     }
@@ -96,27 +96,32 @@ public class gameManager : MonoBehaviour
         if(num <= 50)
         {
             //METEOR
-            Instantiate(obstacles[0], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
+            Instantiate(obstacles[0], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 2), transform.rotation);
         }
         else if(num >= 51 && num <= 61)
         {
             //TRIANGOLI
-            Instantiate(obstacles[1], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
+            Instantiate(obstacles[1], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 2), transform.rotation);
         }
         else if(num >= 62 && num <= 67)
         {
             //CLOCK
-            Instantiate(obstacles[2], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
+            Instantiate(obstacles[2], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 2), transform.rotation);
         }
         else if(num >= 68 && num <= 78)
         {
             //PLANT
-            Instantiate(obstacles[3], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
+            Instantiate(obstacles[3], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 2), transform.rotation);
         }
         else if(num <= 79 && num >= 89)
         {
             //BARRIER
-            Instantiate(obstacles[4], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
+            Instantiate(obstacles[4], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 2), transform.rotation);
+        }
+        else
+        {
+            //PIGEON
+            Instantiate(obstacles[5], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 0), transform.rotation);
         }
     }
     
