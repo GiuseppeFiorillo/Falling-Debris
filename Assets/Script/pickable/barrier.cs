@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class barrier : MonoBehaviour
 {
-<<<<<<< HEAD
     private bool isDespawning = false;
     private float timerDespawn = 3f;
     private void Update()
@@ -29,8 +28,6 @@ public class barrier : MonoBehaviour
         }
     }
 
-=======
->>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Player" && !collision.gameObject.GetComponent<playerHealth>().getBarriered())
@@ -39,16 +36,10 @@ public class barrier : MonoBehaviour
             collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
             Destroy(this.gameObject);
         }
-<<<<<<< HEAD
         else if(collision.gameObject.name == "Terrain")
         {
             gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             isDespawning = true;
-=======
-        else
-        {
-            Destroy(this.gameObject);
->>>>>>> 96ccee69dd647abe1e0f57836ae0c2b806889b2c
         }
     }
 }
