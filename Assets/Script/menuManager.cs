@@ -16,8 +16,9 @@ public class menuManager : MonoBehaviour
         GameObject.Find("menu").transform.GetChild(1).gameObject.SetActive(false);
         GameObject.Find("menu").transform.GetChild(2).gameObject.SetActive(false);
         GameObject.Find("menu").transform.GetChild(3).gameObject.SetActive(false);
+        GameObject.Find("menu").transform.GetChild(6).gameObject.SetActive(true);
         GameObject.Find("menu").transform.GetChild(7).gameObject.SetActive(true);
-        GameObject.Find("menu").transform.GetChild(5).gameObject.SetActive(true);
+        GameObject.Find("menu").transform.GetChild(5).gameObject.SetActive(false);
     }
 
     public void backButton()
@@ -36,9 +37,9 @@ public class menuManager : MonoBehaviour
         GameObject.Find("menu").transform.GetChild(1).gameObject.SetActive(false);
         GameObject.Find("menu").transform.GetChild(2).gameObject.SetActive(false);
         GameObject.Find("menu").transform.GetChild(3).gameObject.SetActive(false);
-        GameObject.Find("menu").transform.GetChild(5).gameObject.SetActive(false);
+        GameObject.Find("menu").transform.GetChild(5).gameObject.SetActive(true);
         GameObject.Find("menu").transform.GetChild(6).gameObject.SetActive(true);
-        GameObject.Find("menu").transform.GetChild(7).gameObject.SetActive(true);
+        GameObject.Find("menu").transform.GetChild(7).gameObject.SetActive(false);
     }
 
     public void close()

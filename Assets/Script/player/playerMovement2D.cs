@@ -5,14 +5,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
 public class PlayerMovement2D : MonoBehaviour
 {
     private Rigidbody2D     m_PlayerRB;
     private float           m_InputX;
     private float           m_JumpTimeCounter;
     private bool            m_IsJumping;
-
+    public AudioSource salto;
     // Use these variable to the check if the player is grounded or not
     [Header                 ("Player Grounded check")]
     public Transform        feetPos;    
@@ -36,6 +36,8 @@ public class PlayerMovement2D : MonoBehaviour
 
     void Update()
     {
+        GetComponent<Animator>().SetFloat("velocity", GetComponent<Rigidbody2D>().velocity.magnitude);
+
         // Getting the Input
         m_InputX = Input.GetAxis("Horizontal");
 
@@ -51,7 +53,8 @@ public class PlayerMovement2D : MonoBehaviour
 
         // If the player is grounded enable him to jump 
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
+        {   
+            salto.Play();
             m_PlayerRB.velocity = Vector2.up * jumpForce;
             m_IsJumping = true;
             m_JumpTimeCounter = jumpTime;
@@ -88,9 +91,11 @@ public class PlayerMovement2D : MonoBehaviour
     {
        if(isSlowed)
        {
+            GetComponent<SpriteRenderer>().color = Color.red;
             timerSlowed -= Time.deltaTime;
             if(timerSlowed < 0)
             {
+                GetComponent<SpriteRenderer>().color = Color.white;
                 timerSlowed = 5f;
                 isSlowed = false;
                 speed = 5f;

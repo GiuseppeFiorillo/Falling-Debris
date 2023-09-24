@@ -28,7 +28,8 @@ public class plant : MonoBehaviour
         }
         else
         {
-            GetComponent<BoxCollider2D>().isTrigger = false;   
+            GetComponent<BoxCollider2D>().isTrigger = false;
+            GetComponent<Animator>().SetBool("isFalling", false);
             isDying = true;
         }
     }

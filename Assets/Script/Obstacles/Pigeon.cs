@@ -34,16 +34,21 @@ public class Pigeon : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
     private void setPath()
     {
         if(direction)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * -.1f);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * -.3f);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         else
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * .1f);
-        }
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * .3f);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            
+        }           
+
     }
     private void getPath()
     {
@@ -58,7 +63,7 @@ public class Pigeon : MonoBehaviour
         if(shootTimer < 0)
         {
             shootTimer = .5f;
-            Instantiate(poop, transform.position, transform.rotation);
+            Instantiate(poop, transform.position - new Vector3(0, 1.5f, 0), transform.rotation);
         }
     }
 }
