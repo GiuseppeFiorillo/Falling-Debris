@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Threading;
 using UnityEngine;
+using UnityEditor;
 
-public class roatationMeteor : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
     private float rotationSpeed;
     [SerializeField]
     private float direction;
 
     [Header("Weight numbers")]
-    [SerializeField]
-    private int[] weights;
+    public int[] weights;
 
     private float timerDestroy = 5f;
-
 
     // Start is called before the first frame update
     void Start()
@@ -26,24 +25,27 @@ public class roatationMeteor : MonoBehaviour
         scaleWeight();
         //PLACEHOLDER
         setSprite();
-
         //CLOCK POWER CHECKER
         clockPowerON();
     }
 
     void setMassAnim()
     {
-        if(GetComponent<Rigidbody2D>().mass == 5)
+        if(GetComponent<Rigidbody2D>().mass == 10)
         {
             GetComponent<Animator>().SetInteger("mass", 0);
         }
-        else if (GetComponent<Rigidbody2D>().mass == 10)
+        else if (GetComponent<Rigidbody2D>().mass == 20)
         {
             GetComponent<Animator>().SetInteger("mass", 1);
         }
-        else if (GetComponent<Rigidbody2D>().mass == 15)
+        else if (GetComponent<Rigidbody2D>().mass == 30)
         {
             GetComponent<Animator>().SetInteger("mass", 2);
+        }
+        else if(GetComponent<Rigidbody2D>().mass == 40)
+        {
+            GetComponent<Animator>().SetInteger("mass", 3);
         }
     }
 
@@ -65,19 +67,24 @@ public class roatationMeteor : MonoBehaviour
 
     public void scaleWeight()
     {
-        if(GetComponent<Rigidbody2D>().mass == 5)
+        if(GetComponent<Rigidbody2D>().mass == 10)
         {
             this.transform.localScale = new Vector3(.5f, .5f, 1);
         }
         
-        if(GetComponent<Rigidbody2D>().mass == 10)
+        if(GetComponent<Rigidbody2D>().mass == 20)
         {
             this.transform.localScale = new Vector3(1f, 1f, 1);
         }
 
-        if (GetComponent<Rigidbody2D>().mass == 15)
+        if (GetComponent<Rigidbody2D>().mass == 30)
         {
             this.transform.localScale = new Vector3(.75f, .75f, 1);
+        }
+
+        if (GetComponent<Rigidbody2D>().mass == 40)
+        {
+            this.transform.localScale = new Vector3(1.25f, 1.25f, 1);
         }
     }
 
@@ -88,7 +95,7 @@ public class roatationMeteor : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null) 
         {
-            if (GetComponent<Rigidbody2D>().mass == 5)
+            if (GetComponent<Rigidbody2D>().mass == 10)
             {
                 newSprite = Resources.Load<Sprite>("Sprites/rock");
                 if (newSprite != null)
@@ -103,7 +110,7 @@ public class roatationMeteor : MonoBehaviour
             }
             
             // Rock
-            else if (GetComponent<Rigidbody2D>().mass == 10)
+            else if (GetComponent<Rigidbody2D>().mass == 20)
             {
                 newSprite = Resources.Load<Sprite>("Sprites/brick");
                 if (newSprite != null)
@@ -118,7 +125,7 @@ public class roatationMeteor : MonoBehaviour
             }
 
             // Anvil
-            else if (GetComponent<Rigidbody2D>().mass == 15)
+            else if (GetComponent<Rigidbody2D>().mass == 30)
             {
                 newSprite = Resources.Load<Sprite>("Sprites/anvil");
                 if (newSprite != null)
@@ -130,7 +137,6 @@ public class roatationMeteor : MonoBehaviour
                 {
                     Debug.LogWarning("SpriteRenderer o newSprite non impostati correttamente.");
                 }
-
             }
         }
     }
@@ -146,6 +152,8 @@ public class roatationMeteor : MonoBehaviour
             GetComponent<Rigidbody2D>().gravityScale = 1f;
         }
     }
+
+    private ParticleSystem.MainModule pMain;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {

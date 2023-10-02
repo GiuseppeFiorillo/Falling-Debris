@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2089876802380647065}
   - component: {fileID: -4640218309117968474}
   - component: {fileID: -6028479808002206880}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Clock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

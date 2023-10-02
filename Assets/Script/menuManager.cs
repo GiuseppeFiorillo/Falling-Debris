@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class menuManager : MonoBehaviour
-{ 
+{
     public void loadPlay()
     {
         SceneManager.LoadScene(1);
@@ -19,6 +19,8 @@ public class menuManager : MonoBehaviour
         GameObject.Find("menu").transform.GetChild(6).gameObject.SetActive(true);
         GameObject.Find("menu").transform.GetChild(7).gameObject.SetActive(true);
         GameObject.Find("menu").transform.GetChild(5).gameObject.SetActive(false);
+        GameObject.Find("menu").transform.GetChild(8).gameObject.SetActive(false);
+        GameObject.Find("menu").transform.GetChild(9).gameObject.SetActive(false);
     }
 
     public void backButton()
@@ -30,6 +32,8 @@ public class menuManager : MonoBehaviour
         GameObject.Find("menu").transform.GetChild(5).gameObject.SetActive(false);
         GameObject.Find("menu").transform.GetChild(6).gameObject.SetActive(false);
         GameObject.Find("menu").transform.GetChild(7).gameObject.SetActive(false);
+        GameObject.Find("menu").transform.GetChild(8).gameObject.SetActive(true);
+        GameObject.Find("menu").transform.GetChild(9).gameObject.SetActive(false);
     }
     public void credits()
     {
@@ -40,6 +44,20 @@ public class menuManager : MonoBehaviour
         GameObject.Find("menu").transform.GetChild(5).gameObject.SetActive(true);
         GameObject.Find("menu").transform.GetChild(6).gameObject.SetActive(true);
         GameObject.Find("menu").transform.GetChild(7).gameObject.SetActive(false);
+        GameObject.Find("menu").transform.GetChild(8).gameObject.SetActive(false);
+        GameObject.Find("menu").transform.GetChild(9).gameObject.SetActive(false);
+    }
+
+    public void musicButton()
+    {
+        if(GameObject.Find("menu").transform.GetChild(9).gameObject.activeInHierarchy)
+        {
+            GameObject.Find("menu").transform.GetChild(9).gameObject.SetActive(false);
+        }
+        else
+        {
+            GameObject.Find("menu").transform.GetChild(9).gameObject.SetActive(true);
+        }
     }
 
     public void close()

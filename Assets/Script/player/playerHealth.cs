@@ -4,45 +4,18 @@ using UnityEngine;
 
 public class playerHealth : MonoBehaviour
 {
-    [SerializeField]
-    private int lives = 3;
-
-    private UI_Manager _UIManager;
-
-    private bool canTakeDamage = true;
-    private bool takingDamage = false;
     private bool barriered = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _UIManager = GameObject.Find("Canvas").GetComponent<UI_Manager>();   
-    }
-
-    private void Update()
-    {
-        checkTakingDamage();
-        death();
-    }
 
     public bool takeDamage()
     {
-        if(canTakeDamage && !barriered)
-        {
-            lives -= 1;
-            _UIManager.updateLives(lives);
-            takingDamage = true;
-            StartCoroutine(damageReset());
-            return true;
-        }
-
         if(getBarriered())
         {
             setBarriered(false);
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     public void setBarriered(bool val)
@@ -52,30 +25,4 @@ public class playerHealth : MonoBehaviour
 
     public bool getBarriered()
     { return barriered; }
-
-    public bool getCanTakeDamage() { return canTakeDamage; }
-
-    private void checkTakingDamage()
-    {
-        if (takingDamage)
-        {
-            canTakeDamage = false;
-        }
-    }
-
-    private IEnumerator damageReset()
-    {
-        yield return new WaitForSeconds(2f);
-        canTakeDamage = true;
-        takingDamage = false;
-    }
-
-    private void death()
-    {
-        if (lives == 0)
-        {
-            GameObject.Find("gameManager").GetComponent<gameManager>().gameOver = true;
-            Destroy(this.gameObject);
-        }
-    }
 }

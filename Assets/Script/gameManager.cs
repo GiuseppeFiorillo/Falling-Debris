@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
+
     [SerializeField]
     private GameObject[] obstacles;
 
@@ -36,6 +37,7 @@ public class gameManager : MonoBehaviour
 
     private void Update()
     {
+        terrainMassHandler();
         restartGame();
         scoreUpdate();
         updateWeightPlayerHUD();
@@ -90,13 +92,14 @@ public class gameManager : MonoBehaviour
             scoreText.GetComponent<TextMeshProUGUI>().text = "SCORE = " + score;
         }
     }
-
     public void CallSpawner()
     {
         timerSpawnObj -= Time.deltaTime;
         if(timerSpawnObj <= 0)
         {
             timerSpawnObj = timerSpawn;
+	        if(timerSpawn > .67f)
+                timerSpawn -= 0.01f;
             SpawnObstacles();
         }
     }
@@ -104,27 +107,27 @@ public class gameManager : MonoBehaviour
     public void SpawnObstacles()
     {
         int num = Random.Range(0, 100);
-        if(num <= 50)
+        if(num <= 65)
         {
-            //METEOR
-            Instantiate(obstacles[0], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 2), transform.rotation);
+            //WEIGHTS
+            Instantiate(obstacles[0], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 5), transform.rotation);
         }
-        else if(num >= 51 && num <= 61)
+        else if(num >= 66 && num <= 71)
         {
-            //TRIANGOLI
+            //BIBITE
             Instantiate(obstacles[1], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 2), transform.rotation);
         }
-        else if(num >= 62 && num <= 67)
+        else if(num >= 72 && num <= 77)
         {
             //CLOCK
             Instantiate(obstacles[2], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 2), transform.rotation);
         }
-        else if(num >= 68 && num <= 78)
+        else if(num >= 78 && num <= 88)
         {
             //PLANT
             Instantiate(obstacles[3], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 2), transform.rotation);
         }
-        else if(num >= 79 && num <= 89)
+        else if(num >= 89 && num <= 94)
         {
             //BARRIER
             Instantiate(obstacles[4], transform.position + new Vector3(Random.Range(-SpawnRange, SpawnRange), 2), transform.rotation);
@@ -161,5 +164,19 @@ public class gameManager : MonoBehaviour
     {
         if(!gameOver)
             GameObject.Find("Canvas").transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "WEIGHT = " + GameObject.Find("Player").GetComponent<Rigidbody2D>().mass;
+    }
+
+    private float terrainMassHandlerTimer = 1f;
+    private void terrainMassHandler()
+    {
+        if (GameObject.Find("Terrain").GetComponent<Rigidbody2D>().mass > 10)
+        { 
+            terrainMassHandlerTimer -= Time.deltaTime;
+            if (terrainMassHandlerTimer <= 0)
+            {
+                terrainMassHandlerTimer = 1f;
+                GameObject.Find("Terrain").GetComponent<Rigidbody2D>().mass -= 1;
+            }
+        }
     }
 }

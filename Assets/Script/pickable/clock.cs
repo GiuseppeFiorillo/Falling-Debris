@@ -19,7 +19,7 @@ public class clock : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player")
+        if(collision.gameObject.name == "Player" && !GameObject.Find("gameManager").GetComponent<gameManager>().getClock())
         {
             GameObject.Find("gameManager").GetComponent<gameManager>().setClock(true);
             Destroy(this.gameObject);
